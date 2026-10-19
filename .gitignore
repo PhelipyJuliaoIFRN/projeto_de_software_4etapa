@@ -1,0 +1,111 @@
+# ==========================================
+# SISTEMA OPERACIONAL E EDITORES
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==========================================
+# SEGURANÇA E CHAVES (NUNCA ENVIAR!)
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.pub
+*.cert
+*.pfx
+
+# ==========================================
+# DEPENDÊNCIAS (JAVASCRIPT / PYTHON / PHP)
+# ==========================================
+node_modules/
+/jspm_packages/
+bower_components/
+
+.venv/
+venv/
+ENV/
+env/
+.env/
+bin/
+lib/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+
+vendor/
+
+# ==========================================
+# COMPILAÇÃO, BUILDS E LOGS
+# ==========================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+htmlcov/
+.topo/
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Dependências do Node.js
+node_modules/
+/jspm_packages/
+
+# Logs do NPM e Yarn
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Variáveis de ambiente e chaves secretas (Segurança)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# Pastas de build e arquivos compilados (se usar bundlers)
+dist/
+build/
+.cache/
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Configurações locais de editores (VS Code, IntelliJ)
+.vscode/
+.idea/
+*.suo
+*.swp

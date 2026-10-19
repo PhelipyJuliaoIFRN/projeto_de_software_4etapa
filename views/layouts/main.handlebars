@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ego Delivery</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- Cabeçalho do site -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="/">
+                <img src="/img/logo.png" alt="Ego Delivery Logo">
+            </a>
+        </div>
+
+        <div class="title">
+            <h1>Ego Delivery</h1>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/" class="btn-link">Home</a></li>
+                <li class="nav-item"><a href="/cardapio" class="btn-link">Cardápio</a></li>
+                <li class="nav-item"><a href="/restaurantes" class="btn-link">Restaurantes</a></li>
+                <li class="nav-item"><a href="/sobre" class="btn-link">Sobre nós</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-actions">
+            <a href="/cadastro" class="btn-auth">Cadastre-se</a> 
+            <a href="/login" class="btn-auth btn-login">Entre</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo dinâmico da página renderizada -->
+    <main class="content">
+        {{{body}}}
+    </main>
+
+    <!-- Rodapé do Site -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Ego Delivery. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
