@@ -17,7 +17,7 @@ app.use(express.static('public'))
 // Cria uma rota para a página inicial "/"
 app.get('/', (req, res)=>{
     // Renderiza a página home e envia os dados para ela
-    res.render('home', {produtos})
+    res.render('home')
 })
 
 app.get('/produto/:id', (req, res) => {
