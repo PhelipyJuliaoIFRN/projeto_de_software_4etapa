@@ -1,3 +1,20 @@
-<main>
-    
-</main>
+<section class="rest" aria-labelledby="rest-titulo">
+    <div class="rest-intro"><span class="rest-legenda">Descubra novos sabores</span><h1 id="rest-titulo">Sua próxima escolha<br>começa por aqui.</h1><p>Conheça os restaurantes e encontre seu próximo prato favorito.</p></div>
+    <form class="rest-busca" action="/restaurantes" method="GET" role="search">
+        <label for="rest-busca">Buscar restaurante ou categoria</label>
+        <div><input id="rest-busca" name="q" type="search" value="{{busca}}" maxlength="150" placeholder="Nome do restaurante, pizzaria…"><button class="rest-botao" type="submit">Buscar</button></div>
+    </form>
+    {{#if erro}}<p class="rest-vazio" role="alert">{{erro}}</p>{{else}}
+        <p class="rest-contagem">{{quantidade}} restaurantes encontrados</p>
+        <div class="rest-banners">
+            {{#each restaurantes}}
+                {{!-- O banner inteiro abre a página do restaurante pelo rID. --}}
+                <a class="rest-banner" href="/restaurantes/{{rID}}">
+                    <div class="rest-banner__foto"><span class="rest-decoracao" aria-hidden="true">🍽️</span>{{#if foto}}<img src="{{foto}}" alt="" width="800" height="400" loading="lazy">{{/if}}<span class="rest-selo">{{filtro}}</span></div>
+                    <div class="rest-banner__texto"><div class="rest-banner__titulo"><h2>{{restaurante}}</h2><span class="rest-nota">★ {{nota}}</span></div><p>{{descricao}}</p><div class="rest-dados"><span>{{total_produtos}} opções no cardápio</span>{{#if preco}}<span>Preço médio {{preco}}</span>{{/if}}</div><span class="rest-banner__link">Conhecer restaurante <span aria-hidden="true">↗</span></span></div>
+                </a>
+            {{else}}<div class="rest-vazio"><h2>Nenhum restaurante encontrado</h2><p>Tente outro nome ou categoria.</p><a href="/restaurantes">Ver todos os restaurantes</a></div>{{/each}}
+        </div>
+    {{/if}}
+</section>
+<script src="/js/restaurante.js" defer></script>

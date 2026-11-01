@@ -1,0 +1,24 @@
+<div class="rest">
+    <a class="rest-voltar" href="/restaurantes">← Todos os restaurantes</a>
+    {{#if erro}}<p class="rest-vazio" role="alert">{{erro}}</p>{{else}}
+        {{#with restaurante}}
+            <section class="rest-perfil" aria-labelledby="rest-nome">
+                <div class="rest-perfil__capa"><span class="rest-decoracao" aria-hidden="true">🍽️</span>{{#if foto}}<img src="{{foto}}" alt="" width="1200" height="400">{{/if}}</div>
+                <div class="rest-perfil__texto"><span class="rest-legenda">{{filtro}}</span><h1 id="rest-nome">{{restaurante}}</h1><p>{{descricao}}</p><div class="rest-dados"><span class="rest-nota">★ {{nota}}</span><a href="#avaliacoes">{{total_avaliacoes}} avaliações</a><span>{{total_produtos}} produtos</span>{{#if preco}}<span>Preço médio {{preco}}</span>{{/if}}</div><a class="rest-botao" href="/cardapio?restaurante={{rID}}">Escolher produtos e montar carrinho →</a></div>
+            </section>
+        {{/with}}
+        <nav class="rest-categorias" aria-label="Categorias do restaurante">{{#each grupos}}<a href="#{{ancora}}">{{nome}}</a>{{/each}}<a href="#avaliacoes">Avaliações</a></nav>
+        {{!-- Todos os produtos deste restaurante, agrupados pela coluna filtro. --}}
+        {{#each grupos}}
+            <section class="rest-grupo" id="{{ancora}}" aria-labelledby="titulo-{{ancora}}"><h2 id="titulo-{{ancora}}">{{nome}}</h2><div class="rest-pratos">
+                {{#each itens}}<article class="rest-prato"><div class="rest-prato__foto"><span class="rest-decoracao" aria-hidden="true">🍽️</span>{{#if foto}}<img src="{{foto}}" alt="{{produto}}" width="240" height="240" loading="lazy">{{/if}}</div><div><h3>{{produto}}</h3><p>{{descricao}}</p><div class="rest-dados"><span>★ {{nota}}</span><span>{{tempo}} min</span></div><div class="rest-preco">{{#if preco_original}}<del>{{preco_original}}</del>{{/if}}<strong>{{preco}}</strong></div></div></article>{{/each}}
+            </div></section>
+        {{else}}<div class="rest-vazio">Este restaurante ainda não cadastrou produtos.</div>{{/each}}
+        <section class="rest-avaliacoes" id="avaliacoes" aria-labelledby="avaliacoes-titulo">
+            <div class="rest-secao-topo"><div><span class="rest-legenda">Quem experimentou, conta</span><h2 id="avaliacoes-titulo">Avaliações do restaurante</h2></div><div class="rest-resumo"><strong>★ {{restaurante.nota}}</strong><span>{{restaurante.total_avaliacoes}} avaliações no total</span></div></div>
+            <p class="rest-ajuda">Comentários mais recentes sobre este restaurante.</p>
+            <div class="rest-comentarios">{{#each avaliacoes}}<article class="rest-comentario"><div class="rest-comentario__topo"><div class="rest-avatar" aria-hidden="true">●</div><div><h3>{{autor}}</h3><span>{{data}}</span></div><strong class="rest-nota">★ {{nota}}/5</strong></div><p>{{comentario}}</p></article>{{else}}<div class="rest-vazio"><h3>Ainda sem avaliações</h3><p>Os comentários dos clientes aparecerão aqui quando forem cadastrados.</p></div>{{/each}}</div>
+        </section>
+    {{/if}}
+</div>
+<script src="/js/restaurante.js" defer></script>

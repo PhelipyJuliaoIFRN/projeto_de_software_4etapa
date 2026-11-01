@@ -1,3 +1,173 @@
-<main>
-    
-</main>
+<div class="home">
+    {{!-- Banner principal. A imagem de fundo é configurada no home.css. --}}
+    <section class="home-banner" aria-labelledby="home-titulo">
+        <div class="home-container home-banner__conteudo">
+            <div class="home-banner__texto">
+                <span class="home-etiqueta">Seu próximo pedido começa aqui</span>
+
+                <h1 id="home-titulo">
+                    Tá com <span>fome?</span><br>
+                    Pede no EgoDelivery.
+                </h1>
+
+                <p>
+                    Explore restaurantes, descubra novos sabores
+                    e encontre aquele prato que combina com sua vontade.
+                </p>
+
+                <div class="home-acoes">
+                    <a class="home-botao home-botao--vermelho" href="/cardapio">
+                        Explorar cardápio
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a class="home-botao home-botao--claro" href="/restaurantes">
+                        Ver restaurantes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- Categorias ilustrativas: a navegação completa fica no cardápio. --}}
+    <section class="home-secao" aria-labelledby="categorias-titulo">
+        <div class="home-container">
+            <div class="home-secao__cabecalho">
+                <div>
+                    <span class="home-legenda">Escolha seu próximo sabor</span>
+                    <h2 id="categorias-titulo">Qual é a fome de hoje?</h2>
+                </div>
+
+                <a class="home-link" href="/cardapio">
+                    Ver cardápio <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <ul class="home-categorias">
+                <li class="home-categoria">
+                    <span class="home-categoria__icone" aria-hidden="true">🍔</span>
+                    <h3>Hambúrgueres</h3>
+                    <p>Para uma fome de respeito.</p>
+                </li>
+
+                <li class="home-categoria">
+                    <span class="home-categoria__icone" aria-hidden="true">🍕</span>
+                    <h3>Pizzas</h3>
+                    <p>Um bom motivo para reunir a turma.</p>
+                </li>
+
+                <li class="home-categoria">
+                    <span class="home-categoria__icone" aria-hidden="true">🍛</span>
+                    <h3>Comida caseira</h3>
+                    <p>Aquele sabor de almoço em casa.</p>
+                </li>
+
+                <li class="home-categoria">
+                    <span class="home-categoria__icone" aria-hidden="true">🥗</span>
+                    <h3>Vegetarianos</h3>
+                    <p>Mais cores e sabores no prato.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    {{!-- Destaque inspirado nas estrelas do design original. --}}
+    <section class="home-destaque" aria-labelledby="restaurantes-titulo">
+        <div class="home-container home-destaque__grade">
+            <div class="home-estrelas" aria-hidden="true">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+            </div>
+
+            <div class="home-destaque__texto">
+                <span class="home-legenda">Encontre seu novo favorito</span>
+
+                <h2 id="restaurantes-titulo">
+                    Diferentes restaurantes.<br>
+                    <span>Um só lugar.</span>
+                </h2>
+
+                <p>
+                    Do lanche da noite ao almoço do dia a dia:
+                    conheça os restaurantes e explore o que cada um prepara.
+                </p>
+
+                <a class="home-botao home-botao--vermelho" href="/restaurantes">
+                    Conhecer restaurantes
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-secao" aria-labelledby="como-funciona-titulo">
+        <div class="home-container">
+            <div class="home-secao__cabecalho">
+                <div>
+                    <span class="home-legenda">Do cardápio à sua escolha</span>
+                    <h2 id="como-funciona-titulo">Começar é simples</h2>
+                </div>
+            </div>
+
+            <ol class="home-passos">
+                <li class="home-passo">
+                    <span class="home-passo__numero" aria-hidden="true">01</span>
+                    <h3>Conheça os restaurantes</h3>
+                    <p>
+                        Explore as opções e encontre o lugar
+                        que combina com sua vontade.
+                    </p>
+                </li>
+
+                <li class="home-passo">
+                    <span class="home-passo__numero" aria-hidden="true">02</span>
+                    <h3>Escolha seu prato</h3>
+                    <p>
+                        Confira as descrições, os preços e
+                        as opções disponíveis no cardápio.
+                    </p>
+                </li>
+
+                <li class="home-passo">
+                    <span class="home-passo__numero" aria-hidden="true">03</span>
+                    <h3>Entre na sua conta</h3>
+                    <p>
+                        Acesse seu perfil ou faça seu cadastro
+                        para continuar sua experiência.
+                    </p>
+                    <a class="home-link" href="/signin">
+                        Criar conta <span aria-hidden="true">→</span>
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    {{!-- Convite para o cadastro de restaurantes. --}}
+    <section class="home-parceiro" aria-labelledby="parceiro-titulo">
+        <div class="home-container">
+            <div class="home-parceiro__card">
+                <div>
+                    <span class="home-legenda">Para quem prepara</span>
+
+                    <h2 id="parceiro-titulo">
+                        Seu restaurante também pode estar aqui.
+                    </h2>
+
+                    <p>
+                        Apresente seus sabores e faça parte do EgoDelivery.
+                    </p>
+                </div>
+
+                <a
+                    class="home-botao home-botao--branco"
+                    href="/restaurante/cadastro"
+                >
+                    Cadastrar restaurante
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,195 @@
+<link rel="stylesheet" href="/css/signin.css">
+
+<section class="cadastro" aria-labelledby="cadastro-restaurante-titulo">
+    <a class="cadastro__voltar" href="/">
+        <span aria-hidden="true">←</span> Voltar ao início
+    </a>
+
+    <div class="cadastro__card">
+        <a class="cadastro__marca" href="/" aria-label="EgoDelivery — início">
+            <span aria-hidden="true">🍔</span>
+            Ego<span class="cadastro__marca-destaque">Delivery</span>
+        </a>
+
+        <h1 id="cadastro-restaurante-titulo">Cadastrar restaurante</h1>
+
+        <p class="cadastro__introducao">
+            Traga seu restaurante para o EgoDelivery.
+        </p>
+
+        {{!-- Mensagem de validação enviada pelo servidor. --}}
+        {{#if erro}}
+            <p class="cadastro__erro" role="alert">{{erro}}</p>
+        {{/if}}
+
+        <form
+            class="cadastro__form"
+            action="/restaurante/cadastro"
+            method="POST"
+        >
+            <div class="cadastro__campo">
+                <label for="restaurante">Nome do restaurante</label>
+
+                <input
+                    type="text"
+                    id="restaurante"
+                    name="restaurante"
+                    placeholder="Digite o nome do restaurante"
+                    autocomplete="organization"
+                    maxlength="150"
+                    required
+                >
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="cnpj">CNPJ</label>
+
+                <input
+                    type="text"
+                    id="cnpj"
+                    name="cnpj"
+                    placeholder="Digite os 14 caracteres"
+                    minlength="14"
+                    maxlength="14"
+                    aria-describedby="cnpj-ajuda"
+                    required
+                >
+
+                <small id="cnpj-ajuda">
+                    Informe o CNPJ sem pontos, barra ou traço.
+                </small>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="descricao">Descrição</label>
+
+                <textarea
+                    id="descricao"
+                    name="descricao"
+                    rows="4"
+                    maxlength="2000"
+                    placeholder="Conte um pouco sobre o restaurante e suas especialidades"
+                ></textarea>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="filtro">Categoria do restaurante</label>
+
+                {{!-- A categoria será armazenada na coluna filtro. --}}
+                <select id="filtro" name="filtro" required>
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option value="Hamburgueria">Hamburgueria</option>
+                    <option value="Pizzaria">Pizzaria</option>
+                    <option value="Comida brasileira">Comida brasileira</option>
+                    <option value="Comida japonesa">Comida japonesa</option>
+                    <option value="Vegetariana">Vegetariana</option>
+                    <option value="Lanchonete">Lanchonete</option>
+                    <option value="Doceria">Doceria</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="foto-restaurante">URL da foto — opcional</label>
+
+                {{!-- O banco armazena o endereço da imagem, não o arquivo. --}}
+                <input
+                    type="url"
+                    id="foto-restaurante"
+                    name="foto_do_restaurante"
+                    placeholder="https://exemplo.com/restaurante.jpg"
+                    maxlength="500"
+                    aria-describedby="foto-ajuda"
+                >
+
+                <small id="foto-ajuda">
+                    Informe o endereço de uma imagem do restaurante.
+                </small>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="restaurante-email">E-mail</label>
+
+                <input
+                    type="email"
+                    id="restaurante-email"
+                    name="email"
+                    placeholder="restaurante@exemplo.com"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="restaurante-telefone">Telefone com DDD</label>
+
+                <input
+                    type="tel"
+                    id="restaurante-telefone"
+                    name="telefone"
+                    placeholder="84999999999"
+                    autocomplete="tel-national"
+                    inputmode="numeric"
+                    pattern="[0-9]{10,11}"
+                    minlength="10"
+                    maxlength="11"
+                    aria-describedby="telefone-ajuda"
+                    required
+                >
+
+                <small id="telefone-ajuda">
+                    Digite o DDD e o número, sem espaços ou pontuação.
+                </small>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="restaurante-senha">Senha</label>
+
+                {{!-- O backend transforma a senha em hash antes de salvar. --}}
+                <input
+                    type="password"
+                    id="restaurante-senha"
+                    name="senha"
+                    placeholder="Crie sua senha"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="128"
+                    aria-describedby="senha-ajuda"
+                    required
+                >
+
+                <small id="senha-ajuda">Use pelo menos 8 caracteres.</small>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="restaurante-confirmar-senha">Confirmar senha</label>
+
+                <input
+                    type="password"
+                    id="restaurante-confirmar-senha"
+                    name="confirmar_senha"
+                    placeholder="Digite a senha novamente"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="128"
+                    required
+                >
+            </div>
+
+            <button class="cadastro__botao" type="submit">
+                Cadastrar restaurante
+            </button>
+        </form>
+
+        <p class="cadastro__login">
+            Já possui uma conta?
+            <a href="/restaurante/login">Entrar como restaurante</a>
+        </p>
+
+        <p class="cadastro__login">
+            Quer fazer pedidos?
+            <a href="/signin">Cadastrar como cliente</a>
+        </p>
+    </div>
+</section>

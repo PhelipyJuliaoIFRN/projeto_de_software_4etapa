@@ -1,3 +1,58 @@
-<main>
-    
-</main>
+<section class="cadastro" aria-labelledby="login-cliente-titulo">
+    <a class="cadastro__voltar" href="/">
+        <span aria-hidden="true">←</span> Voltar ao início
+    </a>
+
+    <div class="cadastro__card">
+        <a class="cadastro__marca" href="/" aria-label="EgoDelivery — início">
+            <span aria-hidden="true">🍔</span>
+            Ego<span class="cadastro__marca-destaque">Delivery</span>
+        </a>
+
+        <h1 id="login-cliente-titulo">Entrar</h1>
+
+        <p class="cadastro__introducao">
+            Acesse sua conta e encontre seu próximo pedido.
+        </p>
+
+        {{!-- Mensagem enviada pelo servidor quando o login falhar. --}}
+        {{#if erro}}
+        <p class="cadastro__erro" role="alert">{{erro}}</p>
+        {{/if}}
+
+        <form class="cadastro__form" action="/login" method="POST">
+            <div class="cadastro__campo">
+                <label for="cliente-email">E-mail</label>
+
+                {{!-- Mantém o e-mail caso o servidor renderize a tela novamente. --}}
+                <input type="email" id="cliente-email" name="email" value="{{email}}" placeholder="voce@exemplo.com"
+                    autocomplete="username" maxlength="254" required>
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="cliente-senha">Senha</label>
+
+                {{!-- Nunca devolver a senha preenchida ao renderizar a página. --}}
+                <input type="password" id="cliente-senha" name="senha" placeholder="Digite sua senha"
+                    autocomplete="current-password" required>
+            </div>
+            <div class="cadastro__recuperacao">
+                <a href="/esqueci-senha">Esqueceu a senha?</a>
+            </div>
+            <button class="cadastro__botao" type="submit">
+                Entrar na minha conta
+            </button>
+
+        </form>
+
+        <p class="cadastro__login">
+            Ainda não tem uma conta?
+            <a href="/signin">Cadastre-se</a>
+        </p>
+
+        <p class="cadastro__login">
+            Tem um restaurante?
+            <a href="/restaurante/login">Entrar como restaurante</a>
+        </p>
+    </div>
+</section>

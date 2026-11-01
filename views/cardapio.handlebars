@@ -1,3 +1,77 @@
-<main>
-    
-</main>
+<section class="menu" aria-labelledby="menu-titulo">
+    <div class="menu__topo">
+        <div><p class="menu__legenda">Encontre seu próximo sabor</p><h1 id="menu-titulo">Cardápio</h1></div>
+        <a class="menu__atalho" href="#menu-carrinho">Meu carrinho (<span data-contagem>0</span>)</a>
+    </div>
+
+    <form class="menu__pesquisa" role="search" data-pesquisa>
+        <label for="menu-busca">Buscar comida ou restaurante</label>
+        <div><input id="menu-busca" type="search" maxlength="150" placeholder="Pizza, hambúrguer, restaurante…" autocomplete="off"><button type="submit">Buscar</button></div>
+    </form>
+
+    {{!-- Categorias obtidas da coluna comidas.filtro. --}}
+    <section class="menu__filtros" aria-labelledby="menu-filtros-titulo">
+        <h2 id="menu-filtros-titulo">Filtros</h2>
+        <div class="menu__carrossel">
+            <button type="button" class="menu__seta" data-direcao="-1" aria-label="Ver categorias anteriores">❮</button>
+            <div class="menu__categorias" data-categorias>
+                <button type="button" class="menu__categoria" data-filtro="" aria-pressed="true"><span aria-hidden="true">🍽️</span>Todas</button>
+                {{#each categorias}}
+                    <button type="button" class="menu__categoria" data-filtro="{{nome}}" aria-pressed="false"><span aria-hidden="true">{{icone}}</span>{{nome}}</button>
+                {{/each}}
+            </div>
+            <button type="button" class="menu__seta" data-direcao="1" aria-label="Ver próximas categorias">❯</button>
+        </div>
+    </section>
+
+    {{#if erro}}<p class="menu__aviso" role="alert">{{erro}}</p>{{/if}}
+    <noscript><p class="menu__aviso">Ative o JavaScript para pesquisar, filtrar e usar o carrinho.</p></noscript>
+
+    <div class="menu__estrutura">
+        <div>
+            <p class="menu__resultado" data-resultado role="status">{{quantidade}} produtos no cardápio</p>
+            <div class="menu__produtos">
+                {{#each comidas}}
+                    {{!-- Valores e textos vêm do servidor; Handlebars escapa os atributos. --}}
+                    <article class="menu-produto" data-produto data-id="{{pID}}" data-nome="{{produto}}" data-restaurante="{{restaurante}}" data-restaurante-id="{{rID}}" data-categoria="{{filtro}}" data-centavos="{{preco_centavos}}">
+                        <div class="menu-produto__foto">
+                            <span class="menu-produto__sem-foto" {{#if foto_do_produto}}hidden{{/if}}>Foto indisponível</span>
+                            {{#if foto_do_produto}}<img src="{{foto_do_produto}}" alt="{{produto}}" loading="lazy" width="400" height="300">{{/if}}
+                            {{#if tem_desconto}}<span class="menu-produto__desconto">−{{desconto_formatado}}%</span>{{/if}}
+                        </div>
+                        <div class="menu-produto__conteudo">
+                            <p class="menu-produto__restaurante">{{restaurante}}</p>
+                            <h3>{{produto}}</h3>
+                            <p class="menu-produto__descricao">{{descricao_do_produto}}</p>
+                            <p class="menu-produto__detalhes"><span>★ {{nota_formatada}}</span><span>{{tempo_de_espera}} min</span></p>
+                            <div class="menu-produto__precos">
+                                {{#if tem_desconto}}<span>De <del>{{preco_original_formatado}}</del></span>{{/if}}
+                                <strong>{{preco_formatado}}</strong>
+                            </div>
+                            <button type="button" class="menu__botao" data-adicionar aria-label="Adicionar {{produto}} ao carrinho">Adicionar +</button>
+                        </div>
+                    </article>
+                {{/each}}
+            </div>
+            <div class="menu__vazio" data-sem-resultados {{#if quantidade}}hidden{{/if}}>
+                <h2>Nenhum produto encontrado</h2><p>Tente outra busca ou escolha outra categoria.</p>
+                <button type="button" class="menu__botao" data-limpar-filtros>Limpar filtros</button>
+            </div>
+        </div>
+
+        {{!-- Este carrinho pertence somente à página do cardápio. --}}
+        <aside class="menu-carrinho" id="menu-carrinho" aria-labelledby="carrinho-titulo">
+            <h2 id="carrinho-titulo">Seu carrinho</h2>
+            <p class="menu-carrinho__restaurante" data-carrinho-restaurante></p>
+            <p data-carrinho-vazio>Seu carrinho está vazio. Que tal escolher algo?</p>
+            <ul class="menu-carrinho__itens" data-itens></ul>
+            <div class="menu-carrinho__total"><span>Subtotal</span><strong data-total>R$ 0,00</strong></div>
+            <p class="menu-carrinho__nota">Entrega não incluída. A finalização do pedido será disponibilizada em uma próxima etapa.</p>
+            <button type="button" class="menu__limpar" data-esvaziar disabled>Esvaziar carrinho</button>
+            <p class="menu-carrinho__mensagem" data-mensagem role="status" aria-live="polite"></p>
+        </aside>
+    </div>
+</section>
+
+{{!-- Apenas esta página carrega o comportamento do cardápio. --}}
+<script src="/js/cardapio.js" defer></script>

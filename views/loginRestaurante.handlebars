@@ -1,0 +1,71 @@
+<section class="cadastro" aria-labelledby="login-restaurante-titulo">
+    <a class="cadastro__voltar" href="/">
+        <span aria-hidden="true">←</span> Voltar ao início
+    </a>
+
+    <div class="cadastro__card">
+        <a class="cadastro__marca" href="/" aria-label="EgoDelivery — início">
+            <span aria-hidden="true">🍔</span>
+            Ego<span class="cadastro__marca-destaque">Delivery</span>
+        </a>
+
+        <h1 id="login-restaurante-titulo">Entrar como restaurante</h1>
+
+        <p class="cadastro__introducao">
+            Acesse a conta do seu restaurante.
+        </p>
+
+        {{!-- Mensagem de erro enviada pelo servidor. --}}
+        {{#if erro}}
+            <p class="cadastro__erro" role="alert">{{erro}}</p>
+        {{/if}}
+
+        <form
+            class="cadastro__form"
+            action="/restaurante/login"
+            method="POST"
+        >
+            <div class="cadastro__campo">
+                <label for="restaurante-email">E-mail do restaurante</label>
+
+                <input
+                    type="email"
+                    id="restaurante-email"
+                    name="email"
+                    value="{{email}}"
+                    placeholder="restaurante@exemplo.com"
+                    autocomplete="username"
+                    maxlength="254"
+                    required
+                >
+            </div>
+
+            <div class="cadastro__campo">
+                <label for="restaurante-senha">Senha</label>
+
+                {{!-- A senha nunca deve ser preenchida pelo servidor. --}}
+                <input
+                    type="password"
+                    id="restaurante-senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button class="cadastro__botao" type="submit">
+                Entrar
+            </button>
+        </form>
+
+        <p class="cadastro__login">
+            Ainda não cadastrou seu restaurante?
+            <a href="/restaurante/cadastro">Cadastrar restaurante</a>
+        </p>
+
+        <p class="cadastro__login">
+            É cliente? <a href="/login">Entrar como cliente</a>
+        </p>
+    </div>
+</section>
