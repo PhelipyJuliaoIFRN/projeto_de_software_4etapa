@@ -1,51 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ego Delivery</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>EgoDelivery</title>
+
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-    <!-- Cabeçalho do site -->
-    <header class="main-header">
-        <div class="logo">
-            <a href="/">
-                <img src="/img/logo.png" alt="Ego Delivery Logo">
-            </a>
-        </div>
+<body class="ego-layout">
+    {{!-- Login e cadastro recebem ocultarNavegacao: true. --}}
+    {{#unless ocultarNavegacao}}
+        <header class="ego-header">
+            <div class="ego-header__conteudo">
+                <a class="ego-marca" href="/" aria-label="EgoDelivery — início">
+                    {{!-- Podemos substituir o emoji pela sua logo depois. --}}
+                    <span class="ego-marca__icone" aria-hidden="true">🍔</span>
+                    <span>Ego<span class="ego-marca__destaque">Delivery</span></span>
+                </a>
 
-        <div class="title">
-            <h1>Ego Delivery</h1>
-        </div>
+                <nav class="ego-menu" aria-label="Navegação principal">
+                    <a class="ego-menu__link" href="/cardapio">Cardápio</a>
+                    <a class="ego-menu__link" href="/restaurantes">Restaurantes</a>
+                    <a class="ego-botao ego-botao--contorno" href="/login">
+                        Entrar
+                    </a>
+                    <a class="ego-botao ego-botao--vermelho" href="/signin">
+                        Cadastrar
+                    </a>
+                </nav>
+            </div>
+        </header>
+    {{/unless}}
 
-        <nav class="nav-menu">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="/" class="btn-link">Home</a></li>
-                <li class="nav-item"><a href="/cardapio" class="btn-link">Cardápio</a></li>
-                <li class="nav-item"><a href="/restaurantes" class="btn-link">Restaurantes</a></li>
-                <li class="nav-item"><a href="/sobre" class="btn-link">Sobre nós</a></li>
-            </ul>
-        </nav>
-
-        <div class="user-actions">
-            <a href="/cadastro" class="btn-auth">Cadastre-se</a> 
-            <a href="/login" class="btn-auth btn-login">Entre</a>
-        </div>
-    </header>
-
-    <!-- Conteúdo dinâmico da página renderizada -->
-    <main class="content">
+    {{!-- Conteúdo da página renderizada pelo Express. --}}
+    <main class="ego-conteudo">
         {{{body}}}
     </main>
 
-    <!-- Rodapé do Site -->
-    <footer class="main-footer">
-        <p>&copy; 2026 Ego Delivery. Todos os direitos reservados.</p>
-    </footer>
-</body>
+    {{#unless ocultarNavegacao}}
+        <footer class="ego-footer">
+            <div class="ego-footer__conteudo">
+                <div>
+                    <a class="ego-marca" href="/">
+                        <span class="ego-marca__icone" aria-hidden="true">🍔</span>
+                        <span>Ego<span class="ego-marca__destaque">Delivery</span></span>
+                    </a>
 
+                    <p class="ego-footer__descricao">
+                        Seu próximo pedido começa aqui.
+                    </p>
+                </div>
+
+                <nav class="ego-footer__links" aria-label="Links do rodapé">
+                    <a href="/cardapio">Cardápio</a>
+                    <a href="/restaurantes">Restaurantes</a>
+                    <a href="/sobreNos">Sobre nós</a>
+                </nav>
+            </div>
+
+            <div class="ego-footer__base">
+                <small>EgoDelivery · Projeto acadêmico</small>
+            </div>
+        </footer>
+    {{/unless}}
+</body>
 </html>
