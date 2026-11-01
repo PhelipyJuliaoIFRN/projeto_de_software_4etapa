@@ -11,8 +11,10 @@
     "start": "nodemon ./index.js localhost 3000"
   },
   "dependencies": {
+    "dotenv": "^18.0.9",
     "express": "^5.3.0",
     "express-handlebars": "^9.0.2",
+    "mysql2": "^3.24.6",
     "nodemon": "^3.1.14"
   }
 }
