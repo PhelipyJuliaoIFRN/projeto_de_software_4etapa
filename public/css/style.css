@@ -1,0 +1,207 @@
+@import url("./home.css");
+@import url("./signin.css");
+@import url("./cardapio.css");
+@import url("./restaurante.css");
+@import url("./produtoID.css");
+@import url("./sobreNos.css");
+
+/* Estrutura geral: mantém o rodapé no fim da tela em páginas curtas. */
+.ego-layout {
+    --ego-vermelho: #e60000;
+    --ego-vermelho-escuro: #b80000;
+    --ego-fundo: #d9d9d9;
+    --ego-texto: #202020;
+
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: var(--ego-fundo);
+    color: var(--ego-texto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ego-layout,
+.ego-layout *,
+.ego-layout *::before,
+.ego-layout *::after {
+    box-sizing: border-box;
+}
+
+.ego-conteudo {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Header */
+.ego-header {
+    background: #eeeeee;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.ego-header__conteudo,
+.ego-footer__conteudo,
+.ego-footer__base {
+    width: min(1120px, 92%);
+    margin-inline: auto;
+}
+
+.ego-header__conteudo {
+    min-height: 72px;
+    padding-block: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Marca compartilhada entre o header e o footer. */
+.ego-marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ego-texto);
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ego-marca__icone {
+    font-size: 30px;
+}
+
+.ego-marca__destaque {
+    color: var(--ego-vermelho);
+}
+
+/* Links e botões */
+.ego-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.ego-menu__link,
+.ego-footer__links a {
+    color: var(--ego-texto);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.ego-menu__link {
+    padding-block: 12px;
+}
+
+.ego-menu__link:hover,
+.ego-footer__links a:hover {
+    color: var(--ego-vermelho);
+    text-decoration: underline;
+}
+
+.ego-botao {
+    min-height: 44px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ego-vermelho);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.ego-botao--contorno {
+    background: transparent;
+    color: var(--ego-vermelho);
+}
+
+.ego-botao--contorno:hover {
+    background: #ffe5e5;
+}
+
+.ego-botao--vermelho {
+    background: var(--ego-vermelho);
+    color: #ffffff;
+}
+
+.ego-botao--vermelho:hover {
+    background: var(--ego-vermelho-escuro);
+    border-color: var(--ego-vermelho-escuro);
+}
+
+/* Destaque para quem navega pelo teclado. */
+.ego-header a:focus-visible,
+.ego-footer a:focus-visible {
+    outline: 3px solid #202020;
+    outline-offset: 4px;
+}
+
+/* Footer */
+.ego-footer {
+    margin-top: 40px;
+    background: #eeeeee;
+    border-top: 3px solid var(--ego-vermelho);
+}
+
+.ego-footer__conteudo {
+    padding-block: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.ego-footer__descricao {
+    margin: 10px 0 0;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ego-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+}
+
+.ego-footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.ego-footer__base {
+    padding-block: 16px;
+    border-top: 1px solid #cccccc;
+    color: #555555;
+    text-align: center;
+}
+
+/* Em telas menores, a navegação ocupa uma segunda linha. */
+@media (max-width: 640px) {
+    .ego-header__conteudo,
+    .ego-footer__conteudo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ego-menu,
+    .ego-footer__links {
+        justify-content: center;
+    }
+
+    .ego-menu {
+        gap: 8px 12px;
+    }
+
+    .ego-botao {
+        padding-inline: 16px;
+    }
+}

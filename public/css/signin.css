@@ -1,0 +1,264 @@
+/* Estilos exclusivos do cadastro, com classes prefixadas para evitar conflitos. */
+.cadastro {
+    --cadastro-vermelho: #d90000;
+    --cadastro-vermelho-hover: #b30000;
+    --cadastro-texto: #202020;
+
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    /* Coloque a imagem de fundo em public/image/fundo-restaurante.jpg.
+       A cor de fundo mantém a página utilizável mesmo sem a imagem. */
+    background-color: #242020;
+    background-image:
+        linear-gradient(rgb(0 0 0 / 65%), rgb(0 0 0 / 75%)),
+        url("/image/fundo-restaurante.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: var(--cadastro-texto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cadastro *,
+.cadastro *::before,
+.cadastro *::after {
+    box-sizing: inherit;
+}
+
+/* Acesso à página inicial sem depender do header. */
+.cadastro__voltar {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid rgb(255 255 255 / 40%);
+    border-radius: 999px;
+    background: rgb(0 0 0 / 30%);
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.cadastro__voltar:hover {
+    background: rgb(0 0 0 / 60%);
+}
+
+/* Cartão inspirado no painel cinza e arredondado do design. */
+.cadastro__card {
+    width: 100%;
+    max-width: 480px;
+    margin-block: auto;
+    padding: 32px;
+    border: 1px solid #eeeeee;
+    border-radius: 24px;
+    background: #dedede;
+    box-shadow: 0 16px 48px rgb(0 0 0 / 30%);
+}
+
+.cadastro__marca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--cadastro-texto);
+    font-size: 23px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.cadastro__marca > span:first-child {
+    margin-right: 8px;
+    font-size: 30px;
+}
+
+.cadastro__marca-destaque {
+    color: var(--cadastro-vermelho);
+}
+
+.cadastro__card h1 {
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.cadastro__introducao {
+    margin: 10px 0 26px;
+    color: #505050;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Campos do formulário. */
+.cadastro__form {
+    display: grid;
+    gap: 16px;
+}
+
+.cadastro__linha {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.cadastro__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.cadastro__campo label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cadastro__campo input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #aaaaaa;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--cadastro-texto);
+    font: inherit;
+    font-size: 16px;
+}
+
+.cadastro__campo input::placeholder {
+    color: #707070;
+    opacity: 1;
+}
+
+.cadastro__campo input:focus-visible {
+    border-color: var(--cadastro-vermelho);
+    outline: 2px solid var(--cadastro-vermelho);
+    outline-offset: 2px;
+}
+
+.cadastro__campo small {
+    color: #505050;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Mensagem de validação recebida do Express. */
+.cadastro__erro {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border: 1px solid #b30000;
+    border-radius: 10px;
+    background: #fff0f0;
+    color: #8b0000;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cadastro__botao {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 6px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--cadastro-vermelho);
+    color: #ffffff;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cadastro__botao:hover {
+    background: var(--cadastro-vermelho-hover);
+}
+
+.cadastro__login {
+    margin: 22px 0 0;
+    color: #505050;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.cadastro__login a {
+    color: #b30000;
+    font-weight: 700;
+    text-underline-offset: 3px;
+}
+
+.cadastro__card a:focus-visible,
+.cadastro__botao:focus-visible {
+    outline: 3px solid #202020;
+    outline-offset: 4px;
+}
+
+.cadastro__voltar:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* Em celulares, CPF e nascimento ficam em linhas separadas. */
+@media (max-width: 480px) {
+    .cadastro {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .cadastro__card {
+        padding: 26px 20px;
+        border-radius: 20px;
+    }
+
+    .cadastro__linha {
+        grid-template-columns: 1fr;
+    }
+
+    .cadastro__card h1 {
+        font-size: 25px;
+    }
+}
+/* Campos adicionais do cadastro de restaurante. */
+.cadastro__campo textarea,
+.cadastro__campo select {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #aaaaaa;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--cadastro-texto);
+    font: inherit;
+    font-size: 16px;
+}
+
+.cadastro__campo textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.cadastro__campo textarea::placeholder {
+    color: #707070;
+    opacity: 1;
+}
+
+.cadastro__campo textarea:focus-visible,
+.cadastro__campo select:focus-visible {
+    border-color: var(--cadastro-vermelho);
+    outline: 2px solid var(--cadastro-vermelho);
+    outline-offset: 2px;
+}
+

@@ -1,0 +1,68 @@
+/* Estilos isolados do cardápio. Importar no início de style.css. */
+.menu { --menu-vermelho: #cf0000; width: min(1220px, 92%); margin: 0 auto; padding: 32px 0 48px; color: #202020; }
+.menu, .menu * { box-sizing: border-box; }
+.menu [hidden] { display: none !important; }
+.menu h1, .menu h2, .menu h3, .menu p { margin: 0; }
+.menu button, .menu input { font: inherit; }
+.menu button { cursor: pointer; }
+.menu button:disabled { opacity: .5; cursor: default; }
+.menu a:focus-visible, .menu button:focus-visible, .menu input:focus-visible { outline: 3px solid #202020; outline-offset: 4px; }
+.menu__topo { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.menu__legenda { color: #a00000; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px !important; }
+.menu h1 { font-size: clamp(30px, 4vw, 44px); }
+.menu__atalho { padding: 12px 18px; border-radius: 30px; background: #fff; color: #a00000; font-weight: 700; text-decoration: none; }
+.menu__pesquisa { max-width: 700px; }
+.menu__pesquisa label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 700; }
+.menu__pesquisa > div { display: flex; gap: 10px; }
+.menu__pesquisa input { width: 100%; min-width: 0; min-height: 46px; padding: 12px 18px; border: 1px solid #aaa; border-radius: 30px; background: #fff; }
+.menu__pesquisa button, .menu__botao { min-height: 44px; padding: 10px 20px; border: 0; border-radius: 30px; background: var(--menu-vermelho); color: #fff; font-weight: 700; }
+.menu__pesquisa button:hover, .menu__botao:hover { background: #a60000; }
+/* Filtros circulares com faixa horizontal e destaque para o selecionado. */
+.menu__filtros { margin: 28px 0; padding-bottom: 24px; border-bottom: 1px solid #bababa; }
+.menu__filtros h2 { font-size: 18px; }
+.menu__carrossel { display: flex; align-items: center; gap: 12px; }
+.menu__seta { flex: 0 0 44px; height: 44px; border: 0; border-radius: 50%; background: #fff; color: #333; }
+.menu__categorias { display: flex; flex: 1; align-items: center; gap: 24px; overflow-x: auto; padding: 20px 8px 12px; scrollbar-width: thin; }
+.menu__categoria { flex: 0 0 108px; display: grid; justify-items: center; align-content: start; gap: 10px; min-height: 132px; padding: 6px; border: 0; background: transparent; color: #555; font-size: 12px !important; font-weight: 700 !important; }
+.menu__categoria > span { display: grid; place-items: center; width: 72px; height: 72px; border: 2px solid transparent; border-radius: 50%; background: #eee; font-size: 34px; }
+.menu__categoria[aria-pressed="true"] { color: #a00000; }
+.menu__categoria[aria-pressed="true"] > span { width: 88px; height: 88px; margin-top: -8px; background: #fff; border-color: var(--menu-vermelho); box-shadow: 0 5px 14px #00000012; }
+.menu__categoria:hover > span { background: #fff; }
+/* Três produtos por linha e carrinho lateral no computador. */
+.menu__estrutura { display: grid; grid-template-columns: minmax(0, 1fr) 290px; align-items: start; gap: 28px; }
+.menu__resultado { margin-bottom: 16px !important; color: #555; font-size: 14px; }
+.menu__produtos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.menu-produto { min-width: 0; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #c3c3c3; border-radius: 16px; background: #eee; }
+.menu-produto__foto { position: relative; aspect-ratio: 4 / 3; background: #c8c8c8; }
+.menu-produto__foto img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.menu-produto__sem-foto { display: grid; place-items: center; height: 100%; padding: 16px; color: #444; font-size: 13px; }
+.menu-produto__desconto { position: absolute; top: 10px; left: 10px; padding: 5px 8px; border-radius: 20px; background: #a60000; color: white; font-size: 12px; font-weight: 700; }
+.menu-produto__conteudo { display: flex; flex: 1; flex-direction: column; gap: 10px; padding: 16px; }
+.menu-produto__restaurante { color: #666; font-size: 12px; }
+.menu-produto h3 { font-size: 19px; overflow-wrap: anywhere; }
+.menu-produto__descricao { color: #555; font-size: 13px; line-height: 1.5; }
+.menu-produto__detalhes { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.menu-produto__detalhes > span:first-child { color: #795300; }
+.menu-produto__precos { display: grid; gap: 4px; margin-top: auto; padding-top: 8px; }
+.menu-produto__precos > span { color: #666; font-size: 12px; }
+.menu-produto__precos strong { font-size: 22px; }
+.menu-produto .menu__botao { width: 100%; font-size: 13px; }
+/* Carrinho sem sobreposição dos produtos em telas pequenas. */
+.menu-carrinho { position: sticky; top: 20px; padding: 22px; border: 1px solid #bbb; border-radius: 18px; background: #f5f5f5; scroll-margin-top: 20px; }
+.menu-carrinho h2 { font-size: 22px; margin-bottom: 14px; }
+.menu-carrinho > p { font-size: 13px; line-height: 1.6; }
+.menu-carrinho__restaurante { color: #a00000; font-weight: 700; margin-bottom: 12px !important; }
+.menu-carrinho__itens { display: grid; gap: 16px; max-height: 380px; overflow-y: auto; margin: 0; padding: 0; list-style: none; }
+.menu-carrinho__item { display: grid; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid #ddd; font-size: 14px; overflow-wrap: anywhere; }
+.menu-carrinho__controles { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.menu-carrinho__controles button { min-width: 44px; min-height: 44px; border: 1px solid #ccc; border-radius: 8px; background: #fff; color: #a00000; }
+.menu-carrinho__total { display: flex; justify-content: space-between; gap: 12px; margin-block: 22px 12px; }
+.menu-carrinho__nota { color: #666; }
+.menu__limpar { min-height: 44px; margin-top: 12px; padding: 8px 0; border: 0; background: transparent; color: #a00000; text-decoration: underline; }
+.menu-carrinho__mensagem { margin-top: 10px !important; color: #8c0000; }
+.menu__vazio, .menu__aviso { padding: 24px; background: #fff; border-radius: 12px; }
+.menu__vazio p { margin-block: 12px 18px; }
+@media (max-width: 1100px) { .menu__produtos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .menu__estrutura { grid-template-columns: 1fr; } .menu-carrinho { position: static; } .menu__categorias { gap: 10px; } .menu__carrossel { gap: 4px; } .menu__topo { flex-wrap: wrap; } }
+@media (max-width: 420px) { .menu__produtos { grid-template-columns: 1fr; } .menu__pesquisa > div { flex-direction: column; } }
+@media (prefers-reduced-motion: reduce) { .menu * { scroll-behavior: auto !important; } }

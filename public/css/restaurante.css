@@ -1,0 +1,76 @@
+/* Vitrine e perfil dos restaurantes. Importado pelo CSS global. */
+.rest { --rest-vermelho:#c90000; width:min(1120px,92%); margin:auto; padding:36px 0 56px; color:#242020; }
+.rest,.rest * { box-sizing:border-box; }
+.rest [hidden] { display:none!important; }
+.rest h1,.rest h2,.rest h3,.rest p { margin:0; }
+.rest a:focus-visible,.rest button:focus-visible,.rest input:focus-visible { outline:3px solid #242020; outline-offset:5px; }
+.rest a { color:inherit; }
+.rest-legenda { display:block; color:#a80000; font-size:12px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px; }
+.rest-intro { padding:20px 0 28px; }
+.rest h1 { font-size:clamp(32px,5vw,54px); line-height:1.08; letter-spacing:-1.5px; }
+.rest-intro p { margin-top:16px; color:#555; line-height:1.6; }
+.rest-busca { max-width:680px; margin:8px 0 28px; }
+.rest-busca label { display:block; margin-bottom:8px; font-weight:700; font-size:14px; }
+.rest-busca > div { display:flex; gap:10px; }
+.rest-busca input { min-width:0; flex:1; min-height:48px; padding:12px 18px; font:inherit; border:1px solid #aaa; border-radius:30px; background:#fff; }
+.rest .rest-botao { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 22px; border:0; border-radius:30px; background:var(--rest-vermelho); color:#fff; font:inherit; font-weight:700; text-align:center; text-decoration:none; cursor:pointer; }
+.rest .rest-botao:hover { background:#a00000; }
+.rest-contagem { margin-bottom:18px!important; font-size:14px; color:#555; }
+/* Banners inteiramente clicáveis com área de fotografia ampla. */
+.rest-banners { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.rest-banner { overflow:hidden; border:1px solid #bfbaba; border-radius:24px; background:#f5f3f1; text-decoration:none; box-shadow:0 8px 24px #24101008; transition:box-shadow .2s; }
+.rest-banner:hover { box-shadow:0 12px 28px #24101020; }
+.rest-banner__foto,.rest-perfil__capa,.rest-prato__foto { position:relative; overflow:hidden; background:radial-gradient(circle at 25% 30%,#ffddaa 0,transparent 50%),linear-gradient(135deg,#ffe9dc,#caa39b); }
+.rest-banner__foto { height:210px; }
+.rest-decoracao { display:grid; position:absolute; inset:0; place-items:center; font-size:72px; }
+.rest img { position:relative; display:block; width:100%; height:100%; object-fit:cover; }
+.rest-selo { position:absolute; bottom:16px; left:18px; padding:8px 14px; border-radius:30px; background:#fff; color:#7e1919; font-size:12px; font-weight:700; }
+.rest-banner__texto { padding:24px; }
+.rest-banner__titulo { display:flex; align-items:start; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.rest-banner h2 { font-size:25px; }
+.rest-nota { color:#735000; font-size:14px; font-weight:700; }
+.rest-banner__texto > p { margin-top:14px; color:#555; line-height:1.6; }
+.rest-dados { display:flex; flex-wrap:wrap; gap:12px 20px; margin-block:16px; font-size:13px; color:#555; }
+.rest-banner__link { display:flex; justify-content:space-between; border-top:1px solid #ddd; padding-top:16px; color:#a80000; font-weight:700; }
+.rest-vazio { padding:28px; background:#f5f3f1; border:1px dashed #aaa; border-radius:16px; line-height:1.7; }
+.rest-vazio a { display:inline-block; margin-top:12px; color:#a80000; }
+.rest-voltar { display:inline-flex; align-items:center; min-height:44px; margin-bottom:16px; text-underline-offset:4px; }
+/* Perfil: capa panorâmica, descrição e entrada para o carrinho. */
+.rest-perfil { overflow:hidden; border-radius:24px; background:#f5f3f1; border:1px solid #bbb; }
+.rest-perfil__capa { height:250px; }
+.rest-perfil__texto { padding:32px; }
+.rest-perfil__texto > p { max-width:760px; margin-top:16px; color:#555; line-height:1.7; }
+.rest-perfil h1 { font-size:clamp(30px,4vw,44px); }
+.rest-categorias { display:flex; gap:12px; overflow-x:auto; padding:24px 4px; }
+.rest-categorias a { flex-shrink:0; padding:13px 20px; border:1px solid #bbb; border-radius:30px; background:#f5f3f1; text-decoration:none; font-weight:700; font-size:14px; }
+.rest-categorias a:hover { color:#a80000; border-color:#a80000; }
+.rest-grupo { margin:12px 0 36px; scroll-margin-top:24px; }
+.rest-grupo h2 { margin-bottom:18px; font-size:26px; }
+.rest-pratos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.rest-prato { display:grid; grid-template-columns:110px minmax(0,1fr); gap:18px; padding:18px; border-radius:18px; border:1px solid #c2bcbc; background:#eee; }
+.rest-prato__foto { height:110px; border-radius:12px; }
+.rest-prato__foto .rest-decoracao { font-size:38px; }
+.rest-prato h3 { font-size:19px; overflow-wrap:anywhere; }
+.rest-prato p { margin-top:8px; font-size:13px; color:#555; line-height:1.6; }
+.rest-preco { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+.rest-preco strong { font-size:20px; }
+.rest-preco del { color:#666; font-size:13px; }
+/* Avaliações reais, sem nomes ou notas inventados. */
+.rest-avaliacoes { margin-top:44px; padding-top:30px; border-top:1px solid #bbb; scroll-margin-top:24px; }
+.rest-secao-topo { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+.rest-secao-topo h2 { font-size:28px; }
+.rest-resumo { display:grid; gap:6px; padding:18px 24px; background:#f8efcf; border-radius:16px; }
+.rest-resumo strong { color:#735000; font-size:22px; }
+.rest-resumo span,.rest-ajuda { color:#555; font-size:13px; }
+.rest-ajuda { margin:20px 0!important; }
+.rest-comentarios { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.rest-comentario { padding:24px; border-radius:18px; background:#f5f3f1; border:1px solid #ccc; }
+.rest-comentario__topo { display:flex; align-items:center; gap:12px; }
+.rest-avatar { flex:0 0 42px; height:42px; display:grid; place-items:center; border-radius:50%; background:#efd9d4; color:#a80000; }
+.rest-comentario h3 { font-size:16px; }
+.rest-comentario__topo > div > span { color:#666; font-size:12px; }
+.rest-comentario__topo > strong { margin-left:auto; }
+.rest-comentario > p { margin-top:18px; line-height:1.7; white-space:pre-wrap; overflow-wrap:anywhere; }
+@media(max-width:760px) { .rest-banners,.rest-pratos,.rest-comentarios { grid-template-columns:1fr; } .rest-perfil__capa { height:190px; } .rest-perfil__texto { padding:24px; } }
+@media(max-width:420px) { .rest-busca > div { flex-direction:column; } .rest-prato { grid-template-columns:80px minmax(0,1fr); gap:12px; padding:14px; } .rest-prato__foto { height:80px; } }
+@media(prefers-reduced-motion:reduce) { .rest * { transition:none!important; } }
